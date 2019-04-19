@@ -1,4 +1,4 @@
-# Initial Setup
+# Initial Setup w/ Shadowsocks
 
 Begin by creating a new user, adding your SSH key, and modifying `sshd_config`. Remove root login.
 
@@ -18,19 +18,32 @@ sudo systemctl restart sshd
 sudo passwd -l root
 ```
 
-
-
 Update all your packages and install some recommended ones.
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && sudo apt-get clean
-sudo apt-get install --no-install-recommends gettext build-essential autoconf libtool libpcre3-dev asciidoc xmlto libev-dev libc-ares-dev automake libmbedtls-dev libsodium-dev curl cron screen 
+sudo apt-get install --no-install-recommends gettext build-essential autoconf libtool libpcre3-dev libssl-dev asciidoc xmlto libev-dev libc-ares-dev automake libmbedtls-dev libsodium-dev curl cron screen git man-db wamerican
 ```
 
 Setup NVM:
 
 ```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+nvm install 8.16.0
+nvm use node 
+node -v
 ```
 
-Setup Shadowsocks: https://github.com/shadowsocks/shadowsocks-libev#linux
+Setup an SSH key:
+```bash
+ssh-keygen -a 100 -t ed25519 -C "ptom@linode"
+cat ~/.ssh/id_ed25519.pub
+```
 
+Setup UFW:
+```bash
+sudo ufw allow OpenSSH
+sudo ufw allow proto tcp to 0.0.0.0/0 port 443 comment "Shadowsocks port"
+sudo ufw enable
+```
+
+### [Install Shadowsocks](./Shadowsocks-Obfs.md)
