@@ -1,4 +1,4 @@
-# Initial Setup w/ Shadowsocks
+# Initial Setup
 
 Begin by creating a new user, adding your SSH key, and modifying `sshd_config`. Remove root login.
 
@@ -21,7 +21,7 @@ sudo passwd -l root
 Update all your packages and install some recommended ones.
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && sudo apt-get clean
-sudo apt-get install --no-install-recommends gettext build-essential autoconf libtool libpcre3-dev libssl-dev asciidoc xmlto libev-dev libc-ares-dev automake libmbedtls-dev libsodium-dev curl cron screen git man-db wamerican
+sudo apt-get install --no-install-recommends gettext build-essential autoconf libtool libpcre3-dev libssl-dev asciidoc xmlto libev-dev libc-ares-dev automake libmbedtls-dev libsodium-dev curl cron screen git man-db wamerican ufw
 ```
 
 Setup NVM:
@@ -47,3 +47,4 @@ sudo ufw enable
 ```
 
 ### [Install Shadowsocks](./Shadowsocks-Obfs.md)
+### [Install Kappbot](./Kappbot.md)
