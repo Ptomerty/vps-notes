@@ -20,8 +20,8 @@ sudo passwd -l root
 
 Update all your packages and install some recommended ones.
 ```bash
-sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && sudo apt-get clean
-sudo apt-get install --no-install-recommends gettext build-essential autoconf libtool libpcre3-dev libssl-dev asciidoc xmlto libev-dev libc-ares-dev automake libmbedtls-dev libsodium-dev curl cron screen git man-db wamerican ufw
+sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && sudo apt clean
+sudo apt install --no-install-recommends gettext build-essential autoconf libtool libpcre3-dev libssl-dev asciidoc xmlto libev-dev libc-ares-dev automake libmbedtls-dev libsodium-dev curl cron screen git man-db wamerican ufw
 ```
 
 Setup NVM:
@@ -32,6 +32,7 @@ nvm install 8.16.0
 nvm use node 
 npm install -g npm
 node -v
+sudo ln -s $(which node) /usr/bin/node
 ```
 
 Setup an SSH key:
@@ -45,6 +46,11 @@ Setup UFW:
 sudo ufw allow OpenSSH
 sudo ufw allow proto tcp to 0.0.0.0/0 port 443 comment "Shadowsocks port"
 sudo ufw enable
+```
+
+Add to `crontab`:
+```
+@weekly sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && sudo apt clean && sudo reboot
 ```
 
 ### [Install Shadowsocks](./Shadowsocks-Obfs.md)
