@@ -116,3 +116,5 @@ sudo systemctl daemon-reload
 sudo systemctl enable shadowsocks
 sudo systemctl start shadowsocks
 ```
+
+## [Return to Setup](./Initial-Setup.md)

@@ -53,5 +53,5 @@ Add to `crontab`:
 @weekly sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y && sudo apt clean && sudo reboot
 ```
 
-### [Install Shadowsocks](./Shadowsocks-Obfs.md)
-### [Install Kappbot](./Kappbot.md)
+## [Install Shadowsocks](./Shadowsocks-Obfs.md)
+## [Install Kappbot](./Kappbot.md)

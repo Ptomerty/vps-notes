@@ -23,3 +23,5 @@ Add to `crontab`:
 @daily /usr/bin/forever restartall
 @reboot /bin/sh /home/ptomerty/start.sh
 ```
+
+## [Return to Setup](./Initial-Setup.md)
